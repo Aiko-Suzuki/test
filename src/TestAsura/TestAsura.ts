@@ -152,11 +152,11 @@ export class TestAsura extends Source {
     }
     override async getSearchResults(searchQuery: SearchRequest, metadata: any): Promise<PagedResults> {
         // This function is also called when the user search in an other source. It should not throw if the server is unavailable.
-		const page: number = metadata?.page ?? 0
+		const page: number = metadata?.page ?? 1
 		const request = App.createRequest({
 			url: `${TestAsuraInfo.websiteBaseURL}`,
 			method: 'GET',
-			param: `?page=${page}&limit=${PAGE_SIZE}&search=${searchQuery.title}`
+			param: `?page=${page}&limit=${PAGE_SIZE}&search="${searchQuery.title}"`
 		})
 		console.log(request.param)
 		// We don't want to throw if the server is unavailable
@@ -176,7 +176,7 @@ export class TestAsura extends Source {
 			tiles.push(App.createPartialSourceManga({
 				title: serie.title,
 				image: `${serie.imgUrl}`,
-				mangaId: serie.id,
+				mangaId: serie.slug,
 				subtitle: undefined
 			}))
 		}

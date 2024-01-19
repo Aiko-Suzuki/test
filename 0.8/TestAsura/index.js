@@ -664,11 +664,11 @@ class TestAsura extends types_1.Source {
         var _a;
         return __awaiter(this, void 0, void 0, function* () {
             // This function is also called when the user search in an other source. It should not throw if the server is unavailable.
-            const page = (_a = metadata === null || metadata === void 0 ? void 0 : metadata.page) !== null && _a !== void 0 ? _a : 0;
+            const page = (_a = metadata === null || metadata === void 0 ? void 0 : metadata.page) !== null && _a !== void 0 ? _a : 1;
             const request = App.createRequest({
                 url: `${exports.TestAsuraInfo.websiteBaseURL}`,
                 method: 'GET',
-                param: `?page=${page}&limit=${PAGE_SIZE}&search=${searchQuery.title}`
+                param: `?page=${page}&limit=${PAGE_SIZE}&search="${searchQuery.title}"`
             });
             console.log(request.param);
             // We don't want to throw if the server is unavailable
@@ -688,7 +688,7 @@ class TestAsura extends types_1.Source {
                 tiles.push(App.createPartialSourceManga({
                     title: serie.title,
                     image: `${serie.imgUrl}`,
-                    mangaId: serie.id,
+                    mangaId: serie.slug,
                     subtitle: undefined
                 }));
             }

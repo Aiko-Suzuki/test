@@ -545,7 +545,7 @@ const Languages_1 = require("./Languages");
 //  - getTags() which is called on the homepage
 //  - search method which is called even if the user search in an other source
 exports.TestAsuraInfo = {
-    version: '1.0.0',
+    version: '1.0.1',
     name: 'AsuraAiko',
     icon: 'logo.webp',
     author: '@beingsuz',

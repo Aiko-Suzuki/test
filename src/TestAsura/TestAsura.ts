@@ -33,7 +33,7 @@ import { parseLangCode } from './Languages'
 //  - getTags() which is called on the homepage
 //  - search method which is called even if the user search in an other source
 export const TestAsuraInfo: SourceInfo = {
-    version: '1.2.12',
+    version: '1.0.0',
     name: 'AsuraAiko',
     icon: 'logo.webp',
     author: '@beingsuz',
